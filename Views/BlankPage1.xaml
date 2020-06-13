@@ -1,0 +1,18 @@
+﻿<Page
+    x:Class="hfTeszt.Views.BlankPage1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:hfTeszt.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <StackPanel Orientation="Horizontal">
+            <Button Background="Green" Name="Green" Content="{Binding Height, ElementName=red}"/>
+            <Button Background="Red" Name="red" Content="{Binding Value, ElementName=slider}"/>
+            <Slider Name="slider" Value="20"/>
+        </StackPanel>
+    </Grid>
+</Page>

@@ -1,0 +1,352 @@
+﻿<Page x:ConnectionId='1'
+    x:Class="hfTeszt.Views.CharacterDetailsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:hfTeszt.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Template10.Controls"
+    xmlns:vm="using:hfTeszt.ViewModels"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.DataContext>
+        <vm:CharacterDetailsPageViewModel x:ConnectionId='2' x:Name="ViewModel" />
+    </Page.DataContext>
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Light">
+                    <SolidColorBrush x:Key="ButtonBackground" Color="Transparent"/>
+                    <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent"/>
+                    <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="Transparent"/>
+                    <SolidColorBrush x:Key="ButtonBorderBrushPointerOver" Color="LightGray"/>
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <ScrollViewer>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <controls:PageHeader Content="Game of Thrones Wiki" Grid.Row="0"/>
+            <AppBarButton x:ConnectionId='3' Content="Main Page"
+                          HorizontalAlignment="Right"
+                          Margin="0,0,10,0"
+                          Height="40" 
+                          VerticalAlignment="Center"                       />
+
+            <TextBlock HorizontalAlignment="Left" 
+                       Margin="56,47,0,20" 
+                       Grid.Row="1" 
+                       Text="{Binding Character.Name}" 
+                       TextWrapping="Wrap" 
+                       VerticalAlignment="Top"
+                       Style="{StaticResource HeaderTextBlockStyle}"/>
+
+            <TextBlock HorizontalAlignment="Left" 
+                       Margin="511,62,0,0" 
+                       Grid.Row="1" 
+                       Text="Titles:" 
+                       TextWrapping="Wrap" 
+                       VerticalAlignment="Top"
+                       Style="{StaticResource TitleTextBlockStyle}"/>
+
+            <TextBlock HorizontalAlignment="Left" 
+                       Margin="574,62,0,0" 
+                       Grid.Row="1" 
+                       Text="{Binding Titles}" 
+                       TextWrapping="Wrap" 
+                       VerticalAlignment="Top"
+                       Style="{StaticResource TitleTextBlockStyle}"/>
+
+            <TextBlock HorizontalAlignment="Left" 
+                       Margin="56,0,0,10" 
+                       Grid.Row="2" 
+                       Text="Aliases:" 
+                       TextWrapping="Wrap" 
+                       VerticalAlignment="Top"
+                       Style="{StaticResource TitleTextBlockStyle}"/>
+
+            <TextBlock HorizontalAlignment="Left" 
+                       Margin="147,0,0,0" 
+                       Grid.Row="2" 
+                       Text="{Binding Aliases}" 
+                       TextWrapping="Wrap" 
+                       VerticalAlignment="Top"
+                       Style="{StaticResource TitleTextBlockStyle}"/>
+
+            <TextBlock HorizontalAlignment="Left" 
+                       Margin="56,0,0,10" 
+                       Grid.Row="3" 
+                       Text="Gender: " 
+                       TextWrapping="Wrap" 
+                       VerticalAlignment="Top"
+                       Style="{StaticResource TitleTextBlockStyle}"/>
+
+            <TextBlock HorizontalAlignment="Left" 
+                       Margin="147,0,0,0" 
+                       Grid.Row="3" 
+                       Text="{Binding Character.Gender}" 
+                       TextWrapping="Wrap" 
+                       VerticalAlignment="Top"
+                       Style="{StaticResource TitleTextBlockStyle}"/>
+
+            <TextBlock HorizontalAlignment="Left" 
+                       Margin="56,0,0,10" 
+                       Grid.Row="4" 
+                       Text="Culture: " 
+                       TextWrapping="Wrap" 
+                       VerticalAlignment="Top"
+                       Style="{StaticResource TitleTextBlockStyle}"/>
+
+            <TextBlock HorizontalAlignment="Left" 
+                       Margin="147,0,0,0" 
+                       Grid.Row="4" 
+                       Text="{Binding Character.Culture}" 
+                       TextWrapping="Wrap" 
+                       VerticalAlignment="Top"
+                       Style="{StaticResource TitleTextBlockStyle}"/>
+
+            <TextBlock HorizontalAlignment="Left" 
+                       Margin="56,0,0,10" 
+                       Grid.Row="5" 
+                       Text="Born:" 
+                       TextWrapping="Wrap" 
+                       VerticalAlignment="Top"
+                       Style="{StaticResource TitleTextBlockStyle}"/>
+
+            <TextBlock HorizontalAlignment="Left" 
+                       Margin="147,0,0,0" 
+                       Grid.Row="5" 
+                       Text="{Binding Character.Born}" 
+                       TextWrapping="Wrap" 
+                       VerticalAlignment="Top"
+                       Style="{StaticResource TitleTextBlockStyle}"/>
+
+            <TextBlock HorizontalAlignment="Left" 
+                       Margin="56,0,0,10" 
+                       Grid.Row="6" 
+                       Text="Died:" 
+                       TextWrapping="Wrap" 
+                       VerticalAlignment="Top"
+                       Style="{StaticResource TitleTextBlockStyle}"/>
+
+            <TextBlock HorizontalAlignment="Left" 
+                       Margin="147,0,0,0" 
+                       Grid.Row="6" 
+                       Text="{Binding Character.Died}" 
+                       TextWrapping="Wrap" 
+                       VerticalAlignment="Top"
+                       Style="{StaticResource TitleTextBlockStyle}"/>
+
+            <TextBlock HorizontalAlignment="Left" 
+                       Margin="56,0,0,0" 
+                       Grid.Row="7" 
+                       Text="Father:" 
+                       TextWrapping="Wrap" 
+                       VerticalAlignment="Top"
+                       Style="{StaticResource TitleTextBlockStyle}"/>
+
+            <Button x:ConnectionId='4' HorizontalAlignment="Left"
+                    Margin="147,0,0,0"
+                    Grid.Row="7"
+                    BorderThickness="2"
+                    Height="48"
+                    Width="Auto"
+                    Tag="{Binding Character.Father}"
+                                             >
+                <StackPanel Width="Auto" Height="48" Padding="12" Orientation="Horizontal" VerticalAlignment="Center">
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE716;" FontSize="25" FontWeight="Bold" VerticalAlignment="Top"/>
+                    <StackPanel Margin="16,1,0,0">
+                        <TextBlock Margin="0,0,0,2" Width="Auto" Text="{Binding Father}" TextWrapping="WrapWholeWords" TextTrimming="Clip"/>
+                    </StackPanel>
+                </StackPanel>
+            </Button>
+
+            <TextBlock HorizontalAlignment="Left" 
+                       Margin="56,0,0,0" 
+                       Grid.Row="8" 
+                       Text="Mother:" 
+                       TextWrapping="Wrap" 
+                       VerticalAlignment="Top"
+                       Style="{StaticResource TitleTextBlockStyle}"/>
+
+            <Button x:ConnectionId='5' HorizontalAlignment="Left"
+                    Margin="147,0,0,0"
+                    Grid.Row="8"
+                    BorderThickness="2"
+                    Height="48"
+                    Width="Auto"
+                    Tag="{Binding Character.Mother}"
+                                             >
+                <StackPanel Width="Auto" Height="48" Padding="12" Orientation="Horizontal" VerticalAlignment="Center">
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE716;" FontSize="25" FontWeight="Bold" VerticalAlignment="Top"/>
+                    <StackPanel Margin="16,1,0,0">
+                        <TextBlock Margin="0,0,0,2" Width="Auto" Text="{Binding Mother}" TextWrapping="WrapWholeWords" TextTrimming="Clip"/>
+                    </StackPanel>
+                </StackPanel>
+            </Button>
+
+            <TextBlock HorizontalAlignment="Left" 
+                       Margin="56,0,0,0" 
+                       Grid.Row="9" 
+                       Text="Spouse:" 
+                       TextWrapping="Wrap" 
+                       VerticalAlignment="Top"
+                       Style="{StaticResource TitleTextBlockStyle}"/>
+
+            <Button x:ConnectionId='6' HorizontalAlignment="Left"
+                    Margin="147,0,0,0"
+                    Grid.Row="9"
+                    BorderThickness="2"
+                    Height="48"
+                    Width="Auto"
+                    Tag="{Binding Character.Spouse}"
+                                             >
+                <StackPanel Width="Auto" Height="48" Padding="12" Orientation="Horizontal" VerticalAlignment="Center">
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE716;" FontSize="25" FontWeight="Bold" VerticalAlignment="Top"/>
+                    <StackPanel Margin="16,1,0,0">
+                        <TextBlock Margin="0,0,0,2" Width="Auto" Text="{Binding Spouse}" TextWrapping="WrapWholeWords" TextTrimming="Clip"/>
+                    </StackPanel>
+                </StackPanel>
+            </Button>
+
+            <TextBlock HorizontalAlignment="Left" 
+                       Margin="56,20,0,0" 
+                       Grid.Row="10" 
+                       Text="Allegiances:" 
+                       TextWrapping="Wrap" 
+                       VerticalAlignment="Top"
+                       Style="{StaticResource TitleTextBlockStyle}"/>
+
+            <GridView x:ConnectionId='7' Grid.Row="10"
+                      Margin="170,0,0,0"
+                      Padding="18"
+                                                                  
+                      IsItemClickEnabled="True"
+                                               >
+
+                <GridView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Width="280" Height="48" Padding="12" Orientation="Horizontal">
+                            <!--glymph!!-->
+                            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="{Binding icon}" FontSize="25" FontWeight="Bold" VerticalAlignment="Top"/>
+                            <StackPanel Margin="16,1,0,0">
+                                <TextBlock Margin="0,0,0,2" Width="Auto" Text="{Binding Name}" TextWrapping="WrapWholeWords" TextTrimming="Clip"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>
+
+            <TextBlock HorizontalAlignment="Left" 
+                       Margin="56,20,0,0" 
+                       Grid.Row="12" 
+                       Text="Books:" 
+                       TextWrapping="Wrap" 
+                       VerticalAlignment="Top"
+                       Style="{StaticResource TitleTextBlockStyle}"/>
+
+            <GridView x:ConnectionId='8' Grid.Row="12"
+                      Margin="120,0,0,0"
+                      Padding="18"
+                                                                
+                      IsItemClickEnabled="True"
+                                              >
+
+                <GridView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Width="220" Height="48" Padding="12" Orientation="Horizontal">
+                            <!--glymph!!-->
+                            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE736;" FontSize="25" FontWeight="Bold" VerticalAlignment="Top"/>
+                            <StackPanel Margin="16,1,0,0">
+                                <TextBlock Margin="0,0,0,2" Width="Auto" Text="{Binding Name}" TextWrapping="WrapWholeWords" TextTrimming="Clip"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>
+
+            <TextBlock HorizontalAlignment="Left" 
+                       Margin="56,20,0,20" 
+                       Grid.Row="13" 
+                       Text="povBooks:" 
+                       TextWrapping="Wrap" 
+                       VerticalAlignment="Top"
+                       Style="{StaticResource TitleTextBlockStyle}"/>
+
+            <GridView x:ConnectionId='9' Grid.Row="13"
+                      Margin="160,0,0,0"
+                      Padding="18"
+                                                                   
+                      IsItemClickEnabled="True"
+                                              >
+
+                <GridView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Width="220" Height="48" Padding="12" Orientation="Horizontal">
+                            <!--glymph!!-->
+                            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE736;" FontSize="25" FontWeight="Bold" VerticalAlignment="Top"/>
+                            <StackPanel Margin="16,1,0,0">
+                                <TextBlock Margin="0,0,0,2" Width="Auto" Text="{Binding Name}" TextWrapping="WrapWholeWords" TextTrimming="Clip"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>
+
+            <TextBlock HorizontalAlignment="Left" 
+                       Margin="56,0,0,20" 
+                       Grid.Row="14" 
+                       Text="tvSeries:" 
+                       TextWrapping="Wrap" 
+                       VerticalAlignment="Top"
+                       Style="{StaticResource TitleTextBlockStyle}"/>
+
+            <TextBlock HorizontalAlignment="Left" 
+                       Margin="160,0,0,0" 
+                       Grid.Row="14" 
+                       Text="{Binding TvSeries}" 
+                       TextWrapping="Wrap" 
+                       VerticalAlignment="Top"
+                       Style="{StaticResource TitleTextBlockStyle}"/>
+
+            <TextBlock HorizontalAlignment="Left" 
+                       Margin="56,0,0,20" 
+                       Grid.Row="15" 
+                       Text="Played by:" 
+                       TextWrapping="Wrap" 
+                       VerticalAlignment="Top"
+                       Style="{StaticResource TitleTextBlockStyle}"/>
+
+            <TextBlock HorizontalAlignment="Left" 
+                       Margin="180,0,0,20" 
+                       Grid.Row="15" 
+                       Text="{Binding PlayedBy}" 
+                       TextWrapping="Wrap" 
+                       VerticalAlignment="Top"
+                       Style="{StaticResource TitleTextBlockStyle}"/>
+        </Grid>
+    </ScrollViewer>
+</Page>
+

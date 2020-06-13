@@ -1,0 +1,6 @@
+﻿<common:BootStrapper x:Class="hfTeszt.App"
+                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:local="using:hfTeszt"
+                     xmlns:common="using:Template10.Common">
+</common:BootStrapper>

@@ -1,0 +1,126 @@
+﻿<Page
+    x:Class="hfTeszt.Views.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:hfTeszt.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:hfTeszt.ViewModels"
+    xmlns:controls="using:Template10.Controls"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.DataContext>
+        <vm:MainPageViewModel x:Name="ViewModel" />
+    </Page.DataContext>
+
+    <Page.Resources>
+        <CollectionViewSource x:Key="BookViewSource"
+                              IsSourceGrouped="False"
+                              Source="{Binding Books}" />
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <controls:PageHeader Content="Game of Thrones Wiki" Grid.Row="0" />
+        <StackPanel HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal"
+                    Height="40">
+
+            <AutoSuggestBox x:Name="SuggestBox"
+                            Background="White"
+                            BorderBrush="DarkGray"
+                            Height="32"
+                            Width="250"
+                            Margin="0,0,10,0"
+                            VerticalAlignment="Center"
+                            QueryIcon="Find" 
+                            TextChanged="AutoSuggestBox_TextChanged" 
+                            QuerySubmitted="AutoSuggestBox_QuerySubmitted" 
+                            SuggestionChosen="AutoSuggestBox_SuggestionChosen"/>
+        </StackPanel>
+
+        <SplitView x:Name="NavBar"
+                   Grid.Row="1"
+                   DisplayMode="CompactInline"
+                   IsPaneOpen="False"
+                   CompactPaneLength="50"
+                   OpenPaneLength="150">
+
+            <SplitView.Pane>
+                <StackPanel>
+                    <Button Height="50" 
+                            Width="50" 
+                            Background="Transparent"
+                            Click="Button_Pane_Size">
+                        <Button.Content>
+                            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE700;"/>
+                        </Button.Content>
+                    </Button>
+
+                    <StackPanel Orientation="Horizontal">
+                        <Button Height="50" 
+                                Width="50" 
+                                Background="Transparent"
+                                Click="Button_Books">
+                            <Button.Content>
+                                <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE736;"/>
+                            </Button.Content>
+                        </Button>
+                        <TextBlock Text="Books" FontSize="16" VerticalAlignment="Center"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <Button Height="50" 
+                                Width="50" 
+                                Background="Transparent" Click="Button_Houses">
+                            <Button.Content>
+                                <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE80F;"/>
+                            </Button.Content>
+                        </Button>
+                        <TextBlock Text="Houses" FontSize="16" VerticalAlignment="Center"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <Button Height="50" 
+                                Width="50" 
+                                Background="Transparent"
+                                Click="Button_Characters">
+                            <Button.Content>
+                                <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE716;"/>
+                            </Button.Content>
+                        </Button>
+                        <TextBlock Text="Characters" FontSize="16" VerticalAlignment="Center"/>
+                    </StackPanel>
+
+                </StackPanel>
+            </SplitView.Pane>
+
+            <SplitView.Content>
+                <GridView x:Name="GridView"
+                          Padding="18"
+                          ItemsSource="{Binding Source={StaticResource BookViewSource}}"
+                          IsItemClickEnabled="True"
+                          ItemClick="GridView_ItemClick">
+
+                    <GridView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Width="260" Height="75" Padding="12" Orientation="Horizontal">
+                                <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="{Binding icon}" FontSize="25" FontWeight="Bold" VerticalAlignment="Top"/>
+                                <TextBlock Margin="16,1,0,2" Width="200" Height="75" Text="{Binding Name}" TextWrapping="Wrap"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+                </GridView>
+            </SplitView.Content>
+
+        </SplitView>
+
+
+    </Grid>
+</Page>
